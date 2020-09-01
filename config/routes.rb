@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'products/index'
+
+  get 'products/show'
+
   devise_for :users
   resources :tags, except: :show
   resources :books
@@ -24,5 +28,6 @@ Rails.application.routes.draw do
    end
   
   root to:'mypage#index'
-  get :mypage, to: 'mypage#index'
+  get :mypage, to: 'products#index'
+  #get :mypage, to: 'mypage#index'
 end
