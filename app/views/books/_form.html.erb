@@ -36,6 +36,11 @@
     <%= form.label :price %>
     <%= form.number_field :price, id: :book_price %>
   </div>
+  
+  <div class="field">
+    <%= form.label :picture %>
+    <%= form.file_field :picture, id: :book_picture %>
+  </div>
 
   <div class="fields">
     <%= collection_check_boxes :book, :tag_ids, Tag.all, :id, :name %>

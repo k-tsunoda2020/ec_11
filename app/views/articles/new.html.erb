@@ -1,0 +1,31 @@
+<h1>New Article</h1>
+<%= form_with(model: @article, method: :get, local: true, url: confirm_articles_path) do |form| %>
+    <!--エラー表示 -->
+    <% if @article.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@article.errors.count,"error") %> prohibited this article from being saved:</h2>
+            <u;>
+                <% @article.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    
+     <!--入力用テキストフィールド -->
+     <div class="field">
+         <%= form.label :title %>
+         <%= form.text_field :title, id: :article_title %>
+     </div>
+     <div class="field">
+         <%= form.label :content %>
+         <%= form.text_field :content, id: :article_content %>
+     </div>
+     
+     <!-- 確認ボタン　戻るボタン -->
+     <div class="actions">
+         <%= form.submit %>
+     </div>
+     
+     <%= link_to 'Back', articles_path %>
+<% end %>

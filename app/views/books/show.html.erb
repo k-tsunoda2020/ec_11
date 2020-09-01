@@ -26,6 +26,11 @@
 </p>
 
 <p>
+  <strong>Picture:</strong>
+  <%= image_tag @book.picture, width: 300 if @book.picture.present? %>
+</p>
+
+<p>
   <strong>タグ</strong>
   <%= @book.tags.map(&:name).join(', ') %>
 </p>

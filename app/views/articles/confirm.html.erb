@@ -1,0 +1,23 @@
+<h1>New Article</h1>
+<%= form_with(model: @article, local: true) do |form| %><!-- 遷移先はCreate action -->
+    <h2>まだ登録は完了していません</h2>
+    
+    <!--Hidden入力用テキストフィールド -->
+     <div class="field">
+         <%= form.label :title %>
+          <%= @article.title %>
+         <%= form.hidden_field :title, id: :article_title %>
+     </div>
+     <div class="field">
+         <%= form.label :content %>
+         <%= @article.content %>
+         <%= form.hidden_field :content, id: :article_content %>
+     </div>
+     
+    <div class ="actions">
+        <%= form.submit '戻る', name: :back %>
+        <%= form.submit '登録' %>
+    </div>
+    
+    <%= link_to 'Back', articles_path %>
+<% end %>
